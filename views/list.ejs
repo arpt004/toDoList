@@ -1,0 +1,38 @@
+<%- include("header") -%>
+
+<div>
+  <form action="/success" method="post">
+    <button type="submit" 
+    style="margin-left: 90%; color:rgb(18, 12, 105); width: auto;"> 
+    Logout </button>
+  </form>
+</div>
+
+  <div class="box" id="heading">
+      <h1>  <%= dpn %> </h1>
+  </div>
+
+  <div class="box">
+
+
+  <%  newItem.forEach(function(item){ %>
+
+    <form action="/delete" method="post">
+      <div class="item">
+        <input type="checkbox" name="tick" value="<%=item._id%>" onChange="this.form.submit()">
+        <p><%=item.name%></p>
+      </div>
+      <input type="hidden" name="hiddenInput" value="<%= listTitle %>"></input>
+    </form>
+  <%  }) %>
+
+
+      <form class="item" action="/success/<%= listTitle %>" method="post">
+        <input type="text" name="item" placeholder="New Item" required>
+        <button type="submit" name="list" value="<%= listTitle %>">+</button>
+      </form>
+  </div>
+
+
+
+<%- include("footer") -%>

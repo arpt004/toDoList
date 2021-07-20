@@ -1,0 +1,23 @@
+<%- include("header") -%>
+
+
+  <div class="box" id="heading">
+    <h1> <a href="/"><i class="fa fa-home"></i></a> <%= listTitle %> </h1>
+  </div>
+
+  <div class="box">
+
+
+  <%  indexName.forEach(function(itemIndex){ %>
+
+    <form action="/delete/index" method="post">
+      <div class="item">
+        <input type="checkbox" name="tick" value="<%=itemIndex._id%>" onChange="this.form.submit()">
+        <p> <a href="/<%=itemIndex.name%>"> <%=itemIndex.name%></a> </p>
+      </div>
+    </form>
+  <%  }) %>
+
+  </div>
+
+<%- include("footer") -%>
